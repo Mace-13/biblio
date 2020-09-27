@@ -12,17 +12,7 @@
         header('LOCATION:index.php');
     }
 
-    if(isset($_GET['delete'])){
-       
-        if(!empty($don['image'])){
-            unlink("../images/".$don['image']);
-        }
-       
-        $delete=$bdd->prepare("DELETE FROM manga WHERE id=?");
-        $delete->execute([$id]);
-        $delete->closeCursor();
-        header("LOCATION:admin.php?delete=success");
-    }
+    
 
 
 
@@ -78,7 +68,7 @@
                                 <td class=\"d-inline-block text-truncate\" style=\"max-width:300px;max-height:100px;\">$descri</td>
                                 <td>
                                     <a href=\"updateManga.php?id=$id\" class=\"btn btn-warning\">Modifier</a>
-                                    <a href=\"deleteManga.php?delete=$id\" class=\"btn btn-danger\">Supprimer</a>
+                                    <a href=\"deleteManga.php?id=$id\" class=\"btn btn-danger\">Supprimer</a>
                                 </td>
                             
                             </tr>";

@@ -45,7 +45,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Supprimer? <?= $don['nom'] ?></h1>
+    <h1>Supprimer? <?= $don['titre'] ?></h1>
   
     <h2><a href="deleteManga.php?id=<?= $don['id'] ?>&delete=accept" class="btn btn-success">Oui</a></h2>
     <h2><a href="admin.php" class="btn btn-danger">Non</a></h2>

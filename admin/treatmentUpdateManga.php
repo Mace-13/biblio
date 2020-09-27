@@ -41,15 +41,15 @@
 
 
 
-        // gestion d'insertion 
+       
         if($err==0){
             require "../connexion.php";
             if(empty($_FILES['image']['tmp_name'])){
-                // modification de l'entrée
+                
                 $upload = $bdd->prepare("UPDATE manga SET titre=:titre, edition=:edition,genre=:genre,description=:descri WHERE id=:myid");
                 $upload->execute([
                     ":titre"=>$title,
-                    ":edition"=>$edition,
+                    ":edition"=>$editor,
                     ":genre"=>$type,
                     ":descri"=>$description,
                     ":myid"=>$id
@@ -57,15 +57,14 @@
                 $upload->closeCursor();
                 header("LOCATION:admin.php?update=success");
             }else{
-                // il faut modifier l'image du produit, donc il faut supprimer l'ancienne
-                // on récupère les information de l'image
+               
                 $reqImg = $bdd->prepare("SELECT image FROM manga WHERE id=?");
                 $reqImg->execute([$id]);
                 $donImg=$reqImg->fetch();
 
                 if(!empty($donImg['image'])){
-                    unlink("../images/".$donImg['image']); // unlink supprimer un fichier  
-                    unlink("../images/mini_".$donImg['image']); // unlink supprimer un fichier  
+                    unlink("../images/".$donImg['image']);  
+                    unlink("../images/mini_".$donImg['image']);  
                 }
 
                 //traitement du fichier

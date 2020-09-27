@@ -10,7 +10,7 @@ $error="";
 
 if(isset($_POST['login'])){
     if($_POST['login']=='' || $_POST['password']==''){
-        $error="Veuillez remplir le formulaire !";
+        $error="Veuillez remplir le formulaire";
     }else{
         require ('../connexion.php');
 
@@ -57,10 +57,14 @@ if(isset($_POST['login'])){
             <div class="form-group">
                 <label for="log">Login :</label>
                 <input type="text" class="form-control" value="" id="login" name="login" placeholder="Votre login">
+                
             </div>
             <div class="form-group">
                 <label for="pass">Mot de passe :</label>
                 <input type="password" class="form-control" value="" id="password" name="password" placeholder="Votre mot de passe">
+                <?php
+                echo "<div class='error mt-3 text-danger'>$error</div>"
+                ?>
             </div>
             <div class="form-group">
                 <input type="submit" value="connexion" class="btn btn-primary">
