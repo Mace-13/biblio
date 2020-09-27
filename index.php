@@ -12,8 +12,12 @@
     <title>Bibliothèque</title>
 </head>
 <body>
+    <nav class="nav">
+        <a href="admin/index.php" class="nav-link btn btn-primary mt-4 ml-4">Connexion</a>
+    </nav>
+    
     <h1 class="col-12 p-5 text-center">Bibliothèque</h1>
-
+    
     <div class="container">
         <div class="row">
        
